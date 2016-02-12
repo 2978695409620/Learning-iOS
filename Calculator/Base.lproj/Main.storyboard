@@ -138,6 +138,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFH-2X-bZk">
                                 <rect key="frame" x="28" y="468" width="102.5" height="124"/>
+                                <state key="normal" title="."/>
+                                <connections>
+                                    <action selector="floatingPoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HKi-WV-iwd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzv-Wg-ker">
                                 <rect key="frame" x="469.5" y="336" width="102.5" height="124"/>
