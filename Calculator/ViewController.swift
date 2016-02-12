@@ -26,6 +26,15 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func appendPi(sender: UIButton) {
+        let pi = "\(M_PI)"
+        if userIsInTheMiddleOfTypingANumber {
+            enter()
+        }
+        display.text = pi
+        enter()
+    }
+    
     @IBAction func operate(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
             enter()
