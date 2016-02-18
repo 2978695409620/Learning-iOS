@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
         hasFloatingPoint = false
-        if let result = brain.pushOperand(displayValue) {
+        if let result = brain.pushOperand(displayValue!) {
             displayValue = result
         } else {
             displayValue = 0
@@ -78,19 +78,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clearAll(sender: UIButton) {
-        history.text = ""
+        history.text = " "
         display.text = "0"
         brain.clearStack()
         userIsInTheMiddleOfTypingANumber = false
         hasFloatingPoint = false
     }
     
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set {
-            display.text = "\(newValue)"
+            display.text = "\(newValue!)"
             userIsInTheMiddleOfTypingANumber = false
         }
     }
