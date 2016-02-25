@@ -313,8 +313,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="desc" destination="wC3-yN-jUs" id="se0-Mb-hw1"/>
                         <outlet property="display" destination="tj9-hf-fej" id="pW3-Qh-Cmd"/>
-                        <outlet property="history" destination="wC3-yN-jUs" id="QiO-QI-iQK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
-    @IBOutlet weak var history: UILabel!
+    @IBOutlet weak var desc: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
     var hasFloatingPoint = false
@@ -22,10 +22,8 @@ class ViewController: UIViewController {
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber {
             display.text = display.text! + digit
-            history.text = history.text! + digit
         } else {
             display.text = digit
-            history.text = history.text! + " " + digit
             userIsInTheMiddleOfTypingANumber = true
         }
     }
@@ -36,7 +34,6 @@ class ViewController: UIViewController {
             enter()
         }
         display.text = pi
-        history.text = history.text! + " π"
         enter()
     }
     
@@ -47,7 +44,6 @@ class ViewController: UIViewController {
                 userIsInTheMiddleOfTypingANumber = true
             }
             display.text = display.text! + sender.currentTitle!
-            history.text = history.text! + " ."
             hasFloatingPoint = true
         }
     }
@@ -62,8 +58,8 @@ class ViewController: UIViewController {
             } else {
                 displayValue = 0
             }
-            history.text = history.text! + " " + operation
         }
+        desc.text = brain.description
     }
     
     @IBAction func enter() {
@@ -74,11 +70,10 @@ class ViewController: UIViewController {
         } else {
             displayValue = 0
         }
-        history.text = history.text! + " ⏎"
     }
     
     @IBAction func clearAll(sender: UIButton) {
-        history.text = " "
+        desc.text = " "
         display.text = "0"
         brain.clearStack()
         userIsInTheMiddleOfTypingANumber = false
