@@ -40,7 +40,7 @@ class CalculatorBrain {
         knownOps["✕"] = Op.BinaryOperation("✕", *)
         knownOps["÷"] = Op.BinaryOperation("÷") {$1 / $0}
         knownOps["+"] = Op.BinaryOperation("+", +)
-        knownOps["−"] = Op.BinaryOperation("-") {$1 - $0}
+        knownOps["-"] = Op.BinaryOperation("-") {$1 - $0}
         knownOps["√"] = Op.UnaryOperation("√") {sqrt($0)}
         knownOps["Sin"] = Op.UnaryOperation("Sin") {sin($0)}
         knownOps["Cos"] = Op.UnaryOperation("Cos") {cos($0)}
