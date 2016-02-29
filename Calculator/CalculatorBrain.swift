@@ -61,7 +61,7 @@ class CalculatorBrain {
                 if (result == "") {
                     result = desc!
                 } else {
-                    result = "\(desc!) \(result)"
+                    result = "\(desc!), \(result)"
                 }
             }while ops.count > 0
             
@@ -90,7 +90,7 @@ class CalculatorBrain {
                     }
                 }
             case .Variable(let symbol):
-                return ("\(variableValues[symbol])", remainingOps)
+                return (symbol, remainingOps)
             }
         }
         return (nil, ops)
@@ -125,7 +125,7 @@ class CalculatorBrain {
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        print("\(opStack) = \(result!) with \(remainder) left over")
+        //print("\(opStack) = \(result!) with \(remainder) left over")
         print("Description: \(description)")
         return result
     }
@@ -137,7 +137,6 @@ class CalculatorBrain {
     
     func pushOperand(symbol: String) -> Double? {
         opStack.append(Op.Variable(symbol))
-        
         return evaluate()
     }
     

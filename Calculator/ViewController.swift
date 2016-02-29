@@ -59,7 +59,7 @@ class ViewController: UIViewController {
                 displayValue = 0
             }
         }
-        desc.text = brain.description
+        desc.text = brain.description + " ="
     }
     
     @IBAction func enter() {
@@ -71,6 +71,33 @@ class ViewController: UIViewController {
             displayValue = 0
         }
     }
+    
+    @IBAction func setM(sender: UIButton) {
+        userIsInTheMiddleOfTypingANumber = false
+        if displayValue != nil {
+            brain.variableValues["M"] = displayValue!
+            if let result = brain.evaluate() {
+                displayValue = result
+            }
+            else {
+                displayValue = nil
+            }
+        }
+    }
+    
+    @IBAction func pushM(sender: UIButton) {
+        if (userIsInTheMiddleOfTypingANumber) {
+            enter()
+        }
+        
+        if let result = brain.pushOperand(sender.currentTitle!) {
+            displayValue = result
+        }
+        else {
+            displayValue = nil
+        }
+    }
+    
     
     @IBAction func clearAll(sender: UIButton) {
         desc.text = " "
