@@ -103,16 +103,21 @@ class ViewController: UIViewController {
         desc.text = " "
         display.text = "0"
         brain.clearStack()
+        brain.variableValues.removeAll()
         userIsInTheMiddleOfTypingANumber = false
         hasFloatingPoint = false
     }
     
     var displayValue: Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
-            display.text = "\(newValue!)"
+            if newValue != nil {
+                display.text = "\(newValue!)"
+            } else {
+                display.text = " "
+            }
             userIsInTheMiddleOfTypingANumber = false
         }
     }
